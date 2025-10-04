@@ -1,0 +1,43 @@
+
+         /\      Grafana   /â€¾â€¾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   â€¾â€¾\ 
+  /          \   |   (  |  (â€¾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: C:\xampp\htdocs\tests\patient\appointment_test.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 1 max VUs, 10m30s max duration (incl. graceful stop):
+              * default: 1 iterations for each of 1 VUs (maxDuration: 10m0s, gracefulStop: 30s)
+
+
+
+  â–ˆ TOTAL RESULTS 
+
+    checks_total.......: 1       36.484766/s
+    checks_succeeded...: 100.00% 1 out of 1
+    checks_failed......: 0.00%   0 out of 1
+
+    âœ“ patient appointment ok
+
+    HTTP
+    http_req_duration..............: avg=6.7ms  min=3.99ms med=6.7ms  max=9.41ms p(90)=8.87ms p(95)=9.14ms
+      { expected_response:true }...: avg=6.7ms  min=3.99ms med=6.7ms  max=9.41ms p(90)=8.87ms p(95)=9.14ms
+    http_req_failed................: 0.00% 0 out of 2
+    http_reqs......................: 2     72.969532/s
+
+    EXECUTION
+    iteration_duration.............: avg=27.4ms min=27.4ms med=27.4ms max=27.4ms p(90)=27.4ms p(95)=27.4ms
+    iterations.....................: 1     36.484766/s
+
+    NETWORK
+    data_received..................: 12 kB 437 kB/s
+    data_sent......................: 323 B 12 kB/s
+
+
+
+
+running (00m00.0s), 0/1 VUs, 1 complete and 0 interrupted iterations
+default âœ“ [ 100% ] 1 VUs  00m00.0s/10m0s  1/1 iters, 1 per VU

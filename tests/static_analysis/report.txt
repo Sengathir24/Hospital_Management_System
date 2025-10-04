@@ -1,0 +1,211 @@
+Static SQL interpolation scan - heuristic results
+Scanned folders: patient, doctor, admin
+
+Found 207 potential issues:
+- patient\appointment.php:42 -> $sqlmain= "select * from patient where pemail=?";
+- patient\appointment.php:57 -> $sqlmain= "select appointment.appoid,schedule.scheduleid,schedule.title,doctor.docname,patient.pname,schedule.scheduledate,schedule.scheduletime,appointment.apponum,appointment.appodate from schedule inner join appointment on schedule.scheduleid=appointment.scheduleid inner join patient on patient.pid=appointment.pid inner join doctor on schedule.docid=doctor.docid  where  patient.pid=$userid ";
+- patient\appointment.php:334 -> //        <a href="?action=drop&id='.$appoid.'&name='.$pname.'&session='.$title.'&apponum='.$apponum.'" class="non-style-link"><button  class="btn-primary-soft btn button-icon btn-delete"  style="padding-left: 40px;padding-top: 12px;padding-bottom: 12px;margin-top: 10px;"><font class="tn-in-text">Cancel</font></button></a>
+- patient\appointment.php:401 -> <a href="delete-appointment.php?id='.$id.'" class="non-style-link"><button  class="btn-primary btn"  style="display: flex;justify-content: center;align-items: center;margin:10px;padding:10px;"<font class="tn-in-text">&nbsp;Yes&nbsp;</font></button></a>&nbsp;&nbsp;&nbsp;
+- patient\appointment.php:410 -> $sqlmain= "select * from doctor where docid=?";
+- patient\appointment.php:420 -> $sqlmain= "select sname from specialties where id=?";
+- patient\booking-complete.php:21 -> $sqlmain= "select * from patient where pemail=?";
+- patient\booking-complete.php:37 -> // Use transaction to ensure count+insert is atomic
+- patient\booking-complete.php:41 -> $sqlCount = "SELECT COUNT(*) AS c FROM appointment WHERE scheduleid = ? FOR UPDATE";
+- patient\booking-complete.php:49 -> // Prepared insert to avoid SQL injection and ensure correctness
+- patient\booking-complete.php:50 -> $sqlInsert = "INSERT INTO appointment(pid, apponum, scheduleid, appodate) VALUES (?, ?, ?, ?)";
+- patient\booking-complete.php:56 -> // Insert failed; rollback and show error
+- patient\booking.php:43 -> $sqlmain= "select * from patient where pemail=?";
+- patient\booking.php:131 -> $list11 = $database->query("select DISTINCT * from  doctor;");
+- patient\booking.php:132 -> $list12 = $database->query("select DISTINCT * from  schedule GROUP BY title;");
+- patient\booking.php:212 -> $sqlmain= "select * from schedule inner join doctor on schedule.docid=doctor.docid where schedule.scheduleid=? order by schedule.scheduledate desc";
+- patient\booking.php:225 -> $sql2="select * from appointment where scheduleid=$id";
+- patient\delete-account.php:19 -> $sqlmain= "select * from patient where pemail=?";
+- patient\delete-account.php:33 -> $sqlmain= "select * from patient where pid=?";
+- patient\delete-account.php:40 -> $sqlmain= "delete from webuser where email=?;";
+- patient\delete-account.php:47 -> $sqlmain= "delete from patient where pemail=?";
+- patient\delete-appointment.php:19 -> //$result001= $database->query("select * from schedule where scheduleid=$id;");
+- patient\delete-appointment.php:21 -> $sql= $database->query("delete from appointment where appoid='$id';");
+- patient\delete-appointment.php:25 -> //$sql= $database->query("delete from doctor where docemail='$email';");
+- patient\doctors.php:42 -> $userrow = $database->query("select * from patient where pemail='$useremail'");
+- patient\doctors.php:115 -> $list11 = $database->query("select  docname,docemail from  doctor;");
+- patient\doctors.php:165 -> $sqlmain= "select * from doctor where docemail='$keyword' or docname='$keyword' or docname like '$keyword%' or docname like '%$keyword' or docname like '%$keyword%'";
+- patient\doctors.php:167 -> $sqlmain= "select * from doctor order by docid desc";
+- patient\doctors.php:233 -> $spcil_res= $database->query("select sname from specialties where id='$spe'");
+- patient\doctors.php:289 -> You want to delete this record<br>('.substr($nameget,0,40).').
+- patient\doctors.php:293 -> <a href="delete-doctor.php?id='.$id.'" class="non-style-link"><button  class="btn-primary btn"  style="display: flex;justify-content: center;align-items: center;margin:10px;padding:10px;"<font class="tn-in-text">&nbsp;Yes&nbsp;</font></button></a>&nbsp;&nbsp;&nbsp;
+- patient\doctors.php:302 -> $sqlmain = "SELECT * FROM doctor WHERE docid=?";
+- patient\doctors.php:313 -> $stmt = $database->prepare("select sname from specialties where id=?");
+- patient\doctors.php:439 -> $sqlmain= "select * from doctor where docid=?";
+- patient\doctors.php:450 -> $sqlmain= "select sname from specialties where id='?";
+- patient\doctors.php:548 -> $list11 = $database->query("select  * from  specialties;");
+- patient\edit-user.php:13 -> $result= $database->query("select * from webuser");
+- patient\edit-user.php:27 -> $sqlmain= "select patient.pid from patient inner join webuser on patient.pemail=webuser.email where webuser.email=?;";
+- patient\edit-user.php:32 -> //$resultqq= $database->query("select * from doctor where docid='$id';");
+- patient\edit-user.php:42 -> //$resultqq1= $database->query("select * from doctor where docemail='$email';");
+- patient\edit-user.php:48 -> //$sql1="insert into doctor(docemail,docname,docpassword,docnic,doctel,specialties) values('$email','$name','$password','$nic','$tele',$spec);";
+- patient\edit-user.php:49 -> $sql1="update patient set pemail='$email',pname='$name',ppassword='$password',pnic='$nic',ptel='$tele',paddress='$address' where pid=$id ;";
+- patient\edit-user.php:52 -> $sql1="update webuser set email='$email' where email='$oldemail' ;";
+- patient\index.php:48 -> $sqlmain= "select * from patient where pemail=?";
+- patient\index.php:139 -> $patientrow = $database->query("select  * from  patient;");
+- patient\index.php:140 -> $doctorrow = $database->query("select  * from  doctor;");
+- patient\index.php:141 -> $appointmentrow = $database->query("select  * from  appointment where appodate>='$today';");
+- patient\index.php:142 -> $schedulerow = $database->query("select  * from  schedule where scheduledate='$today';");
+- patient\index.php:176 -> $list11 = $database->query("select  docname,docemail from  doctor;");
+- patient\index.php:329 -> $sqlmain= "select * from schedule inner join appointment on schedule.scheduleid=appointment.scheduleid inner join patient on patient.pid=appointment.pid inner join doctor on schedule.docid=doctor.docid  where  patient.pid=$userid  and schedule.scheduledate>='$today' order by schedule.scheduledate asc";
+- patient\patient.php:42 -> $sqlmain= "select * from doctor where docemail=?";
+- patient\patient.php:116 -> $sqlmain= "select * from patient where pemail='$keyword' or pname='$keyword' or pname like '$keyword%' or pname like '%$keyword' or pname like '%$keyword%' ";
+- patient\patient.php:122 -> $sqlmain= "select * from patient";
+- patient\patient.php:126 -> $sqlmain= "select * from appointment inner join patient on patient.pid=appointment.pid inner join schedule on schedule.scheduleid=appointment.scheduleid where schedule.docid=$userid;";
+- patient\patient.php:132 -> $sqlmain= "select * from appointment inner join patient on patient.pid=appointment.pid inner join schedule on schedule.scheduleid=appointment.scheduleid where schedule.docid=$userid;";
+- patient\patient.php:156 -> //$list12= $database->query("select * from appointment inner join patient on patient.pid=appointment.pid inner join schedule on schedule.scheduleid=appointment.scheduleid where schedule.docid=1;");
+- patient\patient.php:213 -> <select name="showonly" id="" class="box filter-container-items" style="width:90% ;height: 37px;margin: 0;" >
+- patient\patient.php:355 -> $sqlmain= "select * from patient where pid=?";
+- patient\schedule.php:42 -> $sqlmain= "select * from patient where pemail=?";
+- patient\schedule.php:116 -> $sqlmain= "select * from schedule inner join doctor on schedule.docid=doctor.docid where schedule.scheduledate>='$today'  order by schedule.scheduledate asc";
+- patient\schedule.php:127 -> $sqlmain= "select * from schedule inner join doctor on schedule.docid=doctor.docid where schedule.scheduledate>='$today' and (doctor.docname='$keyword' or doctor.docname like '$keyword%' or doctor.docname like '%$keyword' or doctor.docname like '%$keyword%' or schedule.title='$keyword' or schedule.title like '$keyword%' or schedule.title like '%$keyword' or schedule.title like '%$keyword%' or schedule.scheduledate like '$keyword%' or schedule.scheduledate like '%$keyword' or schedule.scheduledate like '%$keyword%' or schedule.scheduledate='$keyword' )  order by schedule.scheduledate asc";
+- patient\schedule.php:155 -> $list11 = $database->query("select DISTINCT * from  doctor;");
+- patient\schedule.php:156 -> $list12 = $database->query("select DISTINCT * from  schedule GROUP BY title;");
+- patient\schedule.php:309 -> //    <a href="?action=drop&id='.$scheduleid.'&name='.$title.'" class="non-style-link"><button  class="btn-primary-soft btn button-icon btn-delete"  style="padding-left: 40px;padding-top: 12px;padding-bottom: 12px;margin-top: 10px;"><font class="tn-in-text">Cancel Session</font></button></a>
+- patient\settings.php:49 -> $sqlmain= "select * from patient where pemail=?";
+- patient\settings.php:137 -> $patientrow = $database->query("select  * from  patient;");
+- patient\settings.php:138 -> $doctorrow = $database->query("select  * from  doctor;");
+- patient\settings.php:139 -> $appointmentrow = $database->query("select  * from  appointment where appodate>='$today';");
+- patient\settings.php:140 -> $schedulerow = $database->query("select  * from  schedule where scheduledate='$today';");
+- patient\settings.php:255 -> You want to delete Your Account<br>('.substr($nameget,0,40).').
+- patient\settings.php:259 -> <a href="delete-account.php?id='.$id.'" class="non-style-link"><button  class="btn-primary btn"  style="display: flex;justify-content: center;align-items: center;margin:10px;padding:10px;"<font class="tn-in-text">&nbsp;Yes&nbsp;</font></button></a>&nbsp;&nbsp;&nbsp;
+- patient\settings.php:268 -> $sqlmain= "select * from patient where pid=?";
+- patient\settings.php:383 -> $sqlmain= "select * from patient where pid=?";
+- doctor\appointment.php:43 -> $userrow = $database->query("select * from doctor where docemail='$useremail'");
+- doctor\appointment.php:123 -> $list110 = $database->query("select * from schedule inner join appointment on schedule.scheduleid=appointment.scheduleid inner join patient on patient.pid=appointment.pid inner join doctor on schedule.docid=doctor.docid  where  doctor.docid=$userid ");
+- doctor\appointment.php:185 -> $sqlmain= "select appointment.appoid,schedule.scheduleid,schedule.title,doctor.docname,patient.pname,schedule.scheduledate,schedule.scheduletime,appointment.apponum,appointment.appodate from schedule inner join appointment on schedule.scheduleid=appointment.scheduleid inner join patient on patient.pid=appointment.pid inner join doctor on schedule.docid=doctor.docid  where  doctor.docid=$userid ";
+- doctor\appointment.php:309 -> <a href="?action=drop&id='.$appoid.'&name='.$pname.'&session='.$title.'&apponum='.$apponum.'" class="non-style-link"><button  class="btn-primary-soft btn button-icon btn-delete"  style="padding-left: 40px;padding-top: 12px;padding-bottom: 12px;margin-top: 10px;"><font class="tn-in-text">Cancel</font></button></a>
+- doctor\appointment.php:384 -> $list11 = $database->query("select  * from  doctor;");
+- doctor\appointment.php:482 -> You want to delete this record<br><br>
+- doctor\appointment.php:488 -> <a href="delete-appointment.php?id='.$id.'" class="non-style-link"><button  class="btn-primary btn"  style="display: flex;justify-content: center;align-items: center;margin:10px;padding:10px;"<font class="tn-in-text">&nbsp;Yes&nbsp;</font></button></a>&nbsp;&nbsp;&nbsp;
+- doctor\appointment.php:497 -> $sqlmain= "select * from doctor where docid='$id'";
+- doctor\appointment.php:504 -> $spcil_res= $database->query("select sname from specialties where id='$spe'");
+- doctor\delete-appointment.php:19 -> //$result001= $database->query("select * from schedule where scheduleid=$id;");
+- doctor\delete-appointment.php:21 -> $sql= $database->query("delete from appointment where appoid='$id';");
+- doctor\delete-appointment.php:22 -> //$sql= $database->query("delete from doctor where docemail='$email';");
+- doctor\delete-session.php:19 -> //$result001= $database->query("select * from schedule where scheduleid=$id;");
+- doctor\delete-session.php:21 -> $sql= $database->query("delete from schedule where scheduleid='$id';");
+- doctor\delete-session.php:22 -> //$sql= $database->query("delete from doctor where docemail='$email';");
+- doctor\doctors.php:112 -> $list11 = $database->query("select  docname,docemail from  doctor;");
+- doctor\doctors.php:169 -> $sqlmain= "select * from doctor where docemail='$keyword' or docname='$keyword' or docname like '$keyword%' or docname like '%$keyword' or docname like '%$keyword%'";
+- doctor\doctors.php:171 -> $sqlmain= "select * from doctor order by docid desc";
+- doctor\doctors.php:237 -> $spcil_res= $database->query("select sname from specialties where id='$spe'");
+- doctor\doctors.php:257 -> <a href="?action=drop&id='.$docid.'&name='.$name.'" class="non-style-link"><button  class="btn-primary-soft btn button-icon btn-delete"  style="padding-left: 40px;padding-top: 12px;padding-bottom: 12px;margin-top: 10px;"><font class="tn-in-text">Remove</font></button></a>
+- doctor\doctors.php:294 -> You want to delete this record<br>('.substr($nameget,0,40).').
+- doctor\doctors.php:298 -> <a href="delete-doctor.php?id='.$id.'" class="non-style-link"><button  class="btn-primary btn"  style="display: flex;justify-content: center;align-items: center;margin:10px;padding:10px;"<font class="tn-in-text">&nbsp;Yes&nbsp;</font></button></a>&nbsp;&nbsp;&nbsp;
+- doctor\doctors.php:307 -> $sqlmain= "select * from doctor where docid='$id'";
+- doctor\doctors.php:314 -> $spcil_res= $database->query("select sname from specialties where id='$spe'");
+- doctor\doctors.php:492 -> $list11 = $database->query("select  * from  specialties;");
+- doctor\doctors.php:572 -> $sqlmain= "select * from doctor where docid='$id'";
+- doctor\doctors.php:579 -> $spcil_res= $database->query("select sname from specialties where id='$spe'");
+- doctor\doctors.php:672 -> $list11 = $database->query("select  * from  specialties;");
+- doctor\edit-doc.php:13 -> $result= $database->query("select * from webuser");
+- doctor\edit-doc.php:26 -> $result= $database->query("select doctor.docid from doctor inner join webuser on doctor.docemail=webuser.email where webuser.email='$email';");
+- doctor\edit-doc.php:27 -> //$resultqq= $database->query("select * from doctor where docid='$id';");
+- doctor\edit-doc.php:37 -> //$resultqq1= $database->query("select * from doctor where docemail='$email';");
+- doctor\edit-doc.php:43 -> //$sql1="insert into doctor(docemail,docname,docpassword,docnic,doctel,specialties) values('$email','$name','$password','$nic','$tele',$spec);";
+- doctor\edit-doc.php:44 -> $sql1="update doctor set docemail='$email',docname='$name',docpassword='$password',docnic='$nic',doctel='$tele',specialties=$spec where docid=$id ;";
+- doctor\edit-doc.php:47 -> $sql1="update webuser set email='$email' where email='$oldemail' ;";
+- doctor\index.php:50 -> $userrow = $database->query("select * from doctor where docemail='$useremail'");
+- doctor\index.php:136 -> $patientrow = $database->query("select  * from  patient;");
+- doctor\index.php:137 -> $doctorrow = $database->query("select  * from  doctor;");
+- doctor\index.php:138 -> $appointmentrow = $database->query("select  * from  appointment where appodate>='$today';");
+- doctor\index.php:139 -> $schedulerow = $database->query("select  * from  schedule where scheduledate='$today';");
+- doctor\index.php:294 -> $sqlmain= "select schedule.scheduleid,schedule.title,doctor.docname,schedule.scheduledate,schedule.scheduletime,schedule.nop from schedule inner join doctor on schedule.docid=doctor.docid  where schedule.scheduledate>='$today' and schedule.scheduledate<='$nextweek' order by schedule.scheduledate desc";
+- doctor\patient.php:42 -> $userrow = $database->query("select * from doctor where docemail='$useremail'");
+- doctor\patient.php:112 -> $sqlmain= "select * from patient where pemail='$keyword' or pname='$keyword' or pname like '$keyword%' or pname like '%$keyword' or pname like '%$keyword%' ";
+- doctor\patient.php:118 -> $sqlmain= "select * from patient";
+- doctor\patient.php:122 -> $sqlmain= "select * from appointment inner join patient on patient.pid=appointment.pid inner join schedule on schedule.scheduleid=appointment.scheduleid where schedule.docid=$userid;";
+- doctor\patient.php:128 -> $sqlmain= "select * from appointment inner join patient on patient.pid=appointment.pid inner join schedule on schedule.scheduleid=appointment.scheduleid where schedule.docid=$userid;";
+- doctor\patient.php:152 -> //$list12= $database->query("select * from appointment inner join patient on patient.pid=appointment.pid inner join schedule on schedule.scheduleid=appointment.scheduleid where schedule.docid=1;");
+- doctor\patient.php:209 -> <select name="showonly" id="" class="box filter-container-items" style="width:90% ;height: 37px;margin: 0;" >
+- doctor\patient.php:351 -> $sqlmain= "select * from patient where pid='$id'";
+- doctor\schedule.php:43 -> $userrow = $database->query("select * from doctor where docemail='$useremail'");
+- doctor\schedule.php:123 -> $list110 = $database->query("select  * from  schedule where docid=$userid;");
+- doctor\schedule.php:177 -> $sqlmain= "select schedule.scheduleid,schedule.title,doctor.docname,schedule.scheduledate,schedule.scheduletime,schedule.nop from schedule inner join doctor on schedule.docid=doctor.docid where doctor.docid=$userid ";
+- doctor\schedule.php:272 -> <a href="?action=drop&id='.$scheduleid.'&name='.$title.'" class="non-style-link"><button  class="btn-primary-soft btn button-icon btn-delete"  style="padding-left: 40px;padding-top: 12px;padding-bottom: 12px;margin-top: 10px;"><font class="tn-in-text">Cancel Session</font></button></a>
+- doctor\schedule.php:309 -> You want to delete this record<br>('.substr($nameget,0,40).').
+- doctor\schedule.php:313 -> <a href="delete-session.php?id='.$id.'" class="non-style-link"><button  class="btn-primary btn"  style="display: flex;justify-content: center;align-items: center;margin:10px;padding:10px;"<font class="tn-in-text">&nbsp;Yes&nbsp;</font></button></a>&nbsp;&nbsp;&nbsp;
+- doctor\schedule.php:322 -> $sqlmain= "select schedule.scheduleid,schedule.title,doctor.docname,schedule.scheduledate,schedule.scheduletime,schedule.nop from schedule inner join doctor on schedule.docid=doctor.docid  where  schedule.scheduleid=$id";
+- doctor\schedule.php:335 -> $sqlmain12= "select * from appointment inner join patient on patient.pid=appointment.pid inner join schedule on schedule.scheduleid=appointment.scheduleid where schedule.scheduleid=$id;";
+- doctor\settings.php:49 -> $userrow = $database->query("select * from doctor where docemail='$useremail'");
+- doctor\settings.php:136 -> $patientrow = $database->query("select  * from  patient;");
+- doctor\settings.php:137 -> $doctorrow = $database->query("select  * from  doctor;");
+- doctor\settings.php:138 -> $appointmentrow = $database->query("select  * from  appointment where appodate>='$today';");
+- doctor\settings.php:139 -> $schedulerow = $database->query("select  * from  schedule where scheduledate='$today';");
+- doctor\settings.php:254 -> You want to delete this record<br>('.substr($nameget,0,40).').
+- doctor\settings.php:258 -> <a href="delete-doctor.php?id='.$id.'" class="non-style-link"><button  class="btn-primary btn"  style="display: flex;justify-content: center;align-items: center;margin:10px;padding:10px;"<font class="tn-in-text">&nbsp;Yes&nbsp;</font></button></a>&nbsp;&nbsp;&nbsp;
+- doctor\settings.php:267 -> $sqlmain= "select * from doctor where docid='$id'";
+- doctor\settings.php:274 -> $spcil_res= $database->query("select sname from specialties where id='$spe'");
+- doctor\settings.php:369 -> $sqlmain= "select * from doctor where docid='$id'";
+- doctor\settings.php:376 -> $spcil_res= $database->query("select sname from specialties where id='$spe'");
+- doctor\settings.php:470 -> $list11 = $database->query("select  * from  specialties;");
+- admin\add-new.php:43 -> $result= $database->query("select * from webuser");
+- admin\add-new.php:54 -> $result= $database->query("select * from webuser where email='$email';");
+- admin\add-new.php:59 -> $sql1="insert into doctor(docemail,docname,docpassword,docnic,doctel,specialties) values('$email','$name','$password','$nic','$tele',$spec);";
+- admin\add-new.php:60 -> $sql2="insert into webuser values('$email','d')";
+- admin\add-session.php:23 -> $sql="insert into schedule (docid,title,scheduledate,scheduletime,nop) values ($docid,'$title','$date','$time',$nop);";
+- admin\appointment.php:118 -> $list110 = $database->query("select  * from  appointment;");
+- admin\appointment.php:172 -> $list11 = $database->query("select  * from  doctor order by docname asc;");
+- admin\appointment.php:216 -> $sqlmain= "select appointment.appoid,schedule.scheduleid,schedule.title,doctor.docname,patient.pname,schedule.scheduledate,schedule.scheduletime,appointment.apponum,appointment.appodate from schedule inner join appointment on schedule.scheduleid=appointment.scheduleid inner join patient on patient.pid=appointment.pid inner join doctor on schedule.docid=doctor.docid";
+- admin\appointment.php:233 -> $sqlmain= "select appointment.appoid,schedule.scheduleid,schedule.title,doctor.docname,patient.pname,schedule.scheduledate,schedule.scheduletime,appointment.apponum,appointment.appodate from schedule inner join appointment on schedule.scheduleid=appointment.scheduleid inner join patient on patient.pid=appointment.pid inner join doctor on schedule.docid=doctor.docid  order by schedule.scheduledate desc";
+- admin\appointment.php:350 -> <a href="?action=drop&id='.$appoid.'&name='.$pname.'&session='.$title.'&apponum='.$apponum.'" class="non-style-link"><button  class="btn-primary-soft btn button-icon btn-delete"  style="padding-left: 40px;padding-top: 12px;padding-bottom: 12px;margin-top: 10px;"><font class="tn-in-text">Cancel</font></button></a>
+- admin\appointment.php:425 -> $list11 = $database->query("select  * from  doctor;");
+- admin\appointment.php:523 -> You want to delete this record<br><br>
+- admin\appointment.php:529 -> <a href="delete-appointment.php?id='.$id.'" class="non-style-link"><button  class="btn-primary btn"  style="display: flex;justify-content: center;align-items: center;margin:10px;padding:10px;"<font class="tn-in-text">&nbsp;Yes&nbsp;</font></button></a>&nbsp;&nbsp;&nbsp;
+- admin\appointment.php:538 -> $sqlmain= "select * from doctor where docid='$id'";
+- admin\appointment.php:545 -> $spcil_res= $database->query("select sname from specialties where id='$spe'");
+- admin\delete-appointment.php:19 -> //$result001= $database->query("select * from schedule where scheduleid=$id;");
+- admin\delete-appointment.php:21 -> $sql= $database->query("delete from appointment where appoid='$id';");
+- admin\delete-appointment.php:22 -> //$sql= $database->query("delete from doctor where docemail='$email';");
+- admin\delete-doctor.php:19 -> $result001= $database->query("select * from doctor where docid=$id;");
+- admin\delete-doctor.php:21 -> $sql= $database->query("delete from webuser where email='$email';");
+- admin\delete-doctor.php:22 -> $sql= $database->query("delete from doctor where docemail='$email';");
+- admin\delete-session.php:19 -> //$result001= $database->query("select * from schedule where scheduleid=$id;");
+- admin\delete-session.php:21 -> $sql= $database->query("delete from schedule where scheduleid='$id';");
+- admin\delete-session.php:22 -> //$sql= $database->query("delete from doctor where docemail='$email';");
+- admin\doctors.php:110 -> $list11 = $database->query("select  docname,docemail from  doctor;");
+- admin\doctors.php:167 -> $sqlmain= "select * from doctor where docemail='$keyword' or docname='$keyword' or docname like '$keyword%' or docname like '%$keyword' or docname like '%$keyword%'";
+- admin\doctors.php:169 -> $sqlmain= "select * from doctor order by docid desc";
+- admin\doctors.php:235 -> $spcil_res= $database->query("select sname from specialties where id='$spe'");
+- admin\doctors.php:255 -> <a href="?action=drop&id='.$docid.'&name='.$name.'" class="non-style-link"><button  class="btn-primary-soft btn button-icon btn-delete"  style="padding-left: 40px;padding-top: 12px;padding-bottom: 12px;margin-top: 10px;"><font class="tn-in-text">Remove</font></button></a>
+- admin\doctors.php:292 -> You want to delete this record<br>('.substr($nameget,0,40).').
+- admin\doctors.php:296 -> <a href="delete-doctor.php?id='.$id.'" class="non-style-link"><button  class="btn-primary btn"  style="display: flex;justify-content: center;align-items: center;margin:10px;padding:10px;"<font class="tn-in-text">&nbsp;Yes&nbsp;</font></button></a>&nbsp;&nbsp;&nbsp;
+- admin\doctors.php:305 -> $sqlmain= "select * from doctor where docid='$id'";
+- admin\doctors.php:312 -> $spcil_res= $database->query("select sname from specialties where id='$spe'");
+- admin\doctors.php:490 -> $list11 = $database->query("select  * from  specialties order by sname asc;");
+- admin\doctors.php:570 -> $sqlmain= "select * from doctor where docid='$id'";
+- admin\doctors.php:577 -> $spcil_res= $database->query("select sname from specialties where id='$spe'");
+- admin\doctors.php:671 -> $list11 = $database->query("select  * from  specialties;");
+- admin\edit-doc.php:13 -> $result= $database->query("select * from webuser");
+- admin\edit-doc.php:26 -> $result= $database->query("select doctor.docid from doctor inner join webuser on doctor.docemail=webuser.email where webuser.email='$email';");
+- admin\edit-doc.php:27 -> //$resultqq= $database->query("select * from doctor where docid='$id';");
+- admin\edit-doc.php:37 -> //$resultqq1= $database->query("select * from doctor where docemail='$email';");
+- admin\edit-doc.php:43 -> //$sql1="insert into doctor(docemail,docname,docpassword,docnic,doctel,specialties) values('$email','$name','$password','$nic','$tele',$spec);";
+- admin\edit-doc.php:44 -> $sql1="update doctor set docemail='$email',docname='$name',docpassword='$password',docnic='$nic',doctel='$tele',specialties=$spec where docid=$id ;";
+- admin\edit-doc.php:47 -> $sql1="update webuser set email='$email' where email='$oldemail' ;";
+- admin\index.php:111 -> $list11 = $database->query("select  docname,docemail from  doctor;");
+- admin\index.php:142 -> $patientrow = $database->query("select  * from  patient;");
+- admin\index.php:143 -> $doctorrow = $database->query("select  * from  doctor;");
+- admin\index.php:144 -> $appointmentrow = $database->query("select  * from  appointment where appodate>='$today';");
+- admin\index.php:145 -> $schedulerow = $database->query("select  * from  schedule where scheduledate='$today';");
+- admin\index.php:293 -> $sqlmain= "select appointment.appoid,schedule.scheduleid,schedule.title,doctor.docname,patient.pname,schedule.scheduledate,schedule.scheduletime,appointment.apponum,appointment.appodate from schedule inner join appointment on schedule.scheduleid=appointment.scheduleid inner join patient on patient.pid=appointment.pid inner join doctor on schedule.docid=doctor.docid  where schedule.scheduledate>='$today'  and schedule.scheduledate<='$nextweek' order by schedule.scheduledate desc";
+- admin\index.php:389 -> $sqlmain= "select schedule.scheduleid,schedule.title,doctor.docname,schedule.scheduledate,schedule.scheduletime,schedule.nop from schedule inner join doctor on schedule.docid=doctor.docid  where schedule.scheduledate>='$today' and schedule.scheduledate<='$nextweek' order by schedule.scheduledate desc";
+- admin\patient.php:111 -> $list11 = $database->query("select  pname,pemail from patient;");
+- admin\patient.php:161 -> $sqlmain= "select * from patient where pemail='$keyword' or pname='$keyword' or pname like '$keyword%' or pname like '%$keyword' or pname like '%$keyword%' ";
+- admin\patient.php:163 -> $sqlmain= "select * from patient order by pid desc";
+- admin\patient.php:292 -> $sqlmain= "select * from patient where pid='$id'";
+- admin\schedule.php:118 -> $list110 = $database->query("select  * from  schedule;");
+- admin\schedule.php:172 -> $list11 = $database->query("select  * from  doctor order by docname asc;");
+- admin\schedule.php:216 -> $sqlmain= "select schedule.scheduleid,schedule.title,doctor.docname,schedule.scheduledate,schedule.scheduletime,schedule.nop from schedule inner join doctor on schedule.docid=doctor.docid ";
+- admin\schedule.php:233 -> $sqlmain= "select schedule.scheduleid,schedule.title,doctor.docname,schedule.scheduledate,schedule.scheduletime,schedule.nop from schedule inner join doctor on schedule.docid=doctor.docid  order by schedule.scheduledate desc";
+- admin\schedule.php:327 -> <a href="?action=drop&id='.$scheduleid.'&name='.$title.'" class="non-style-link"><button  class="btn-primary-soft btn button-icon btn-delete"  style="padding-left: 40px;padding-top: 12px;padding-bottom: 12px;margin-top: 10px;"><font class="tn-in-text">Remove</font></button></a>
+- admin\schedule.php:402 -> $list11 = $database->query("select  * from  doctor order by docname asc;");
+- admin\schedule.php:498 -> You want to delete this record<br>('.substr($nameget,0,40).').
+- admin\schedule.php:502 -> <a href="delete-session.php?id='.$id.'" class="non-style-link"><button  class="btn-primary btn"  style="display: flex;justify-content: center;align-items: center;margin:10px;padding:10px;"<font class="tn-in-text">&nbsp;Yes&nbsp;</font></button></a>&nbsp;&nbsp;&nbsp;
+- admin\schedule.php:511 -> $sqlmain= "select schedule.scheduleid,schedule.title,doctor.docname,schedule.scheduledate,schedule.scheduletime,schedule.nop from schedule inner join doctor on schedule.docid=doctor.docid  where  schedule.scheduleid=$id";
+- admin\schedule.php:524 -> $sqlmain12= "select * from appointment inner join patient on patient.pid=appointment.pid inner join schedule on schedule.scheduleid=appointment.scheduleid where schedule.scheduleid=$id;";

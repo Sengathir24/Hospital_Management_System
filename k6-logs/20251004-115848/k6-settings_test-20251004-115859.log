@@ -1,0 +1,43 @@
+
+         /\      Grafana   /â€¾â€¾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   â€¾â€¾\ 
+  /          \   |   (  |  (â€¾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: C:\xampp\htdocs\tests\patient\settings_test.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 1 max VUs, 10m30s max duration (incl. graceful stop):
+              * default: 1 iterations for each of 1 VUs (maxDuration: 10m0s, gracefulStop: 30s)
+
+
+
+  â–ˆ TOTAL RESULTS 
+
+    checks_total.......: 1       40.030583/s
+    checks_succeeded...: 100.00% 1 out of 1
+    checks_failed......: 0.00%   0 out of 1
+
+    âœ“ patient settings ok
+
+    HTTP
+    http_req_duration..............: avg=4.92ms  min=4.01ms  med=4.92ms  max=5.83ms  p(90)=5.64ms  p(95)=5.74ms 
+      { expected_response:true }...: avg=4.92ms  min=4.01ms  med=4.92ms  max=5.83ms  p(90)=5.64ms  p(95)=5.74ms 
+    http_req_failed................: 0.00% 0 out of 2
+    http_reqs......................: 2     80.061167/s
+
+    EXECUTION
+    iteration_duration.............: avg=24.98ms min=24.98ms med=24.98ms max=24.98ms p(90)=24.98ms p(95)=24.98ms
+    iterations.....................: 1     40.030583/s
+
+    NETWORK
+    data_received..................: 14 kB 539 kB/s
+    data_sent......................: 320 B 13 kB/s
+
+
+
+
+running (00m00.0s), 0/1 VUs, 1 complete and 0 interrupted iterations
+default âœ“ [ 100% ] 1 VUs  00m00.0s/10m0s  1/1 iters, 1 per VU

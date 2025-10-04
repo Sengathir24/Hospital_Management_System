@@ -1,0 +1,43 @@
+
+         /\      Grafana   /â€¾â€¾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   â€¾â€¾\ 
+  /          \   |   (  |  (â€¾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: C:\xampp\htdocs\tests\patient\delete_account_test.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 1 max VUs, 10m30s max duration (incl. graceful stop):
+              * default: 1 iterations for each of 1 VUs (maxDuration: 10m0s, gracefulStop: 30s)
+
+
+
+  â–ˆ TOTAL RESULTS 
+
+    checks_total.......: 1       14.728647/s
+    checks_succeeded...: 100.00% 1 out of 1
+    checks_failed......: 0.00%   0 out of 1
+
+    âœ“ delete account page ok
+
+    HTTP
+    http_req_duration..............: avg=26.11ms min=5.94ms  med=26.11ms max=46.29ms p(90)=42.25ms p(95)=44.27ms
+      { expected_response:true }...: avg=26.11ms min=5.94ms  med=26.11ms max=46.29ms p(90)=42.25ms p(95)=44.27ms
+    http_req_failed................: 0.00%  0 out of 2
+    http_reqs......................: 2      29.457294/s
+
+    EXECUTION
+    iteration_duration.............: avg=67.89ms min=67.89ms med=67.89ms max=67.89ms p(90)=67.89ms p(95)=67.89ms
+    iterations.....................: 1      14.728647/s
+
+    NETWORK
+    data_received..................: 3.2 kB 48 kB/s
+    data_sent......................: 326 B  4.8 kB/s
+
+
+
+
+running (00m00.1s), 0/1 VUs, 1 complete and 0 interrupted iterations
+default âœ“ [ 100% ] 1 VUs  00m00.1s/10m0s  1/1 iters, 1 per VU

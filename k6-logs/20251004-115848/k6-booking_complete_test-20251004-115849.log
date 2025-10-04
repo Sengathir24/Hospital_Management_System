@@ -1,0 +1,43 @@
+
+         /\      Grafana   /â€¾â€¾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   â€¾â€¾\ 
+  /          \   |   (  |  (â€¾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: C:\xampp\htdocs\tests\patient\booking_complete_test.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 1 max VUs, 10m30s max duration (incl. graceful stop):
+              * default: 1 iterations for each of 1 VUs (maxDuration: 10m0s, gracefulStop: 30s)
+
+
+
+  â–ˆ TOTAL RESULTS 
+
+    checks_total.......: 1       32.334625/s
+    checks_succeeded...: 100.00% 1 out of 1
+    checks_failed......: 0.00%   0 out of 1
+
+    âœ“ booking complete handled
+
+    HTTP
+    http_req_duration..............: avg=6.96ms  min=5.93ms  med=6.96ms  max=7.99ms  p(90)=7.79ms  p(95)=7.89ms 
+      { expected_response:true }...: avg=6.96ms  min=5.93ms  med=6.96ms  max=7.99ms  p(90)=7.79ms  p(95)=7.89ms 
+    http_req_failed................: 0.00%  0 out of 2
+    http_reqs......................: 2      64.669249/s
+
+    EXECUTION
+    iteration_duration.............: avg=30.92ms min=30.92ms med=30.92ms max=30.92ms p(90)=30.92ms p(95)=30.92ms
+    iterations.....................: 1      32.334625/s
+
+    NETWORK
+    data_received..................: 3.6 kB 115 kB/s
+    data_sent......................: 414 B  13 kB/s
+
+
+
+
+running (00m00.0s), 0/1 VUs, 1 complete and 0 interrupted iterations
+default âœ“ [ 100% ] 1 VUs  00m00.0s/10m0s  1/1 iters, 1 per VU

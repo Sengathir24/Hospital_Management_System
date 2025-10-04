@@ -1,0 +1,59 @@
+
+         /\      Grafana   /â€¾â€¾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   â€¾â€¾\ 
+  /          \   |   (  |  (â€¾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: C:\xampp\htdocs\tests\patient\patient_flow.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 1 max VUs, 10m30s max duration (incl. graceful stop):
+              * default: 1 iterations for each of 1 VUs (maxDuration: 10m0s, gracefulStop: 30s)
+
+
+running (00m01.0s), 1/1 VUs, 0 complete and 0 interrupted iterations
+default   [   0% ] 1 VUs  00m01.0s/10m0s  0/1 iters, 1 per VU
+
+running (00m02.0s), 1/1 VUs, 0 complete and 0 interrupted iterations
+default   [   0% ] 1 VUs  00m02.0s/10m0s  0/1 iters, 1 per VU
+
+running (00m03.0s), 1/1 VUs, 0 complete and 0 interrupted iterations
+default   [   0% ] 1 VUs  00m03.0s/10m0s  0/1 iters, 1 per VU
+
+
+  â–ˆ TOTAL RESULTS 
+
+    checks_total.......: 6       1.880283/s
+    checks_succeeded...: 100.00% 6 out of 6
+    checks_failed......: 0.00%   0 out of 6
+
+    âœ“ index.php ok
+    âœ“ doctors.php ok
+    âœ“ schedule.php ok
+    âœ“ booking.php?id=1 ok
+    âœ“ appointment.php ok
+    âœ“ settings.php ok
+
+    HTTP
+    http_req_duration..............: avg=24.75ms min=3.99ms med=11.83ms max=113.03ms p(90)=54.51ms p(95)=83.77ms
+      { expected_response:true }...: avg=24.75ms min=3.99ms med=11.83ms max=113.03ms p(90)=54.51ms p(95)=83.77ms
+    http_req_failed................: 0.00% 0 out of 7
+    http_reqs......................: 7     2.193663/s
+
+    EXECUTION
+    iteration_duration.............: avg=3.19s   min=3.19s  med=3.19s   max=3.19s    p(90)=3.19s   p(95)=3.19s  
+    iterations.....................: 1     0.31338/s
+    vus............................: 1     min=1      max=1
+    vus_max........................: 1     min=1      max=1
+
+    NETWORK
+    data_received..................: 69 kB 22 kB/s
+    data_sent......................: 978 B 307 B/s
+
+
+
+
+running (00m03.2s), 0/1 VUs, 1 complete and 0 interrupted iterations
+default âœ“ [ 100% ] 1 VUs  00m03.2s/10m0s  1/1 iters, 1 per VU
