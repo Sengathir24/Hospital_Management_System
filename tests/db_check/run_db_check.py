@@ -15,7 +15,7 @@ if len(sys.argv) < 2:
 scheduleid = sys.argv[1]
 php_script = os.path.join(os.path.dirname(__file__), 'verify_apponum.php')
 
-proc = subprocess.run(['php', php_script, scheduleid], capture_output=True, text=True)
+proc = subprocess.run(['C:\\xampp\\php\\php.exe', php_script, scheduleid], capture_output=True, text=True)
 if proc.returncode != 0:
     print('PHP script failed:')
     print(proc.stderr)
