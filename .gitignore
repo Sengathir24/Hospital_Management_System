@@ -1,0 +1,8 @@
+# Performance test outputs (k6)
+k6-logs/
+k6-results/
+k6-output/
+
+# Local artifacts and temporary folders
+.vscode/
+vendor/

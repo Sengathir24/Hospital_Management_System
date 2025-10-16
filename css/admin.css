@@ -22,6 +22,18 @@
     
 }
 
+.menu-icon-medicine::before{
+    content: '';
+    display:inline-block;
+    width:20px;
+    height:20px;
+    margin-right:8px;
+    vertical-align:middle;
+    background-image: url('../img/icons/settings.svg'); /* placeholder - replace with medicines.svg if available */
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
 .profile-title{
     font-weight: 500;
     color: #161c2d;
